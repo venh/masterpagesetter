@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="MasterPageSetterModule">
+    <File Path="MasterPageSetterModule\MasterPageSetterAppPage.aspx" Url="MasterPageSetterModule/MasterPageSetterAppPage.aspx" />
+<File Path="MasterPageSetterModule\MasterPageSetterScript.js" Url="MasterPageSetterModule/MasterPageSetterScript.js" />
+<File Path="MasterPageSetterModule\jquery-1.9.1.min.js" Url="MasterPageSetterModule/jquery-1.9.1.min.js" />
+</Module>
+</Elements>

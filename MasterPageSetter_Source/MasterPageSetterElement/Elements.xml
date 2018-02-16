@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <CustomAction Location="ScriptLink" ScriptBlock="
+                 if(!window.jQuery)
+                   {
+                     loadScript('../../../MasterPageSetterModule/jquery-1.9.1.min.js', function(){ }); 
+                   }
+                   function loadScript(url, callback) {
+                     var script = document.createElement('script')
+                     script.type = 'text/javascript';
+                     if (script.readyState) { //IE
+                         script.onreadystatechange = function () {
+                             if (script.readyState == 'loaded' || script.readyState == 'complete') {
+                                 script.onreadystatechange = null;
+                                 callback();
+                             }
+                         };
+                     } else { //Others
+                         script.onload = function () {
+                             callback();
+                         };
+                     }
+                     script.src = url;
+                     document.getElementsByTagName('head')[0].appendChild(script);
+                   }
+                " Sequence="103"></CustomAction>
+  <CustomAction Id="Ribbon.Library.Actions.MasterPageSetterButton"
+    Location="CommandUI.Ribbon"
+    RegistrationId="116"
+    RegistrationType="List"
+    Title="Master Page Setter Ribbon Button">
+    <CommandUIExtension>
+      <CommandUIDefinitions>
+        <CommandUIDefinition
+          Location="Ribbon.Documents.Share.Controls._children">
+          <Button Id="Ribbon.Documents.Share.MasterPageSetterRibbonButton"
+            Command="MasterPageSetterRibbonButtonCommand"
+            Image16by16="/_layouts/Images/discussHS.png"
+            Image32by32="/_layouts/Images/discussHH.png"
+            LabelText="Set as Default Master"
+            TemplateAlias="o2" />
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler
+          Command="MasterPageSetterRibbonButtonCommand"
+           CommandAction="javascript:$.getScript('../../../MasterPageSetterModule/MasterPageSetterScript.js', function() { SetMaster(); });"
+           EnabledScript="javascript:enabledController()
+                           function enabledController()
+                           {   
+                               if(typeof checkIsEnabled == 'undefined')
+                               {                                 
+                                  $.getScript('../../../MasterPageSetterModule/MasterPageSetterScript.js', function() { RefreshCommandUI(); });                                  
+                                  return false;
+                               }
+                                else { return checkIsEnabled();}
+                            }
+                             function loadScript(url, callback) {
+                                  var script = document.createElement('script')
+                                  script.type = 'text/javascript';
+                                  if (script.readyState) { //IE
+                                      script.onreadystatechange = function () {
+                                          if (script.readyState == 'loaded' || script.readyState == 'complete') {
+                                              script.onreadystatechange = null;
+                                              callback();
+                                          }
+                                      };
+                                  } else { //Others
+                                      script.onload = function () {
+                                          callback();
+                                      };
+                                  }
+                                  script.src = url;
+                                  document.getElementsByTagName('head')[0].appendChild(script);
+                              }
+                            "
+          />
+      </CommandUIHandlers>
+    </CommandUIExtension>
+  </CustomAction>  
+</Elements>

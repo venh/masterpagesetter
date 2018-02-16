@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="cc37e5d6-0643-42eb-9ad5-4f5b04f885e6" solutionId="cc37e5d6-0643-42eb-9ad5-4f5b04f885e6" resetWebServer="false" name="MasterPageSetter" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="54cbfb55-7602-417b-8158-adcd3fe76993" />
+  </features>
+</package>
